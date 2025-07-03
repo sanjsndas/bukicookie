@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BukiCookie - Baking Joy, One Cookie at a Time</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --cookie-dough: #EEDBC2;
+            --chocolate-brown: #8D6E63;
+            --vanilla-cream: #FFF8E1;
+            --berry-pink: #F48FB1;
+            --sprinkle-blue: #81D4FA;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', cursive, sans-serif;
+        }
+        
+        body {
+            background-color: var(--vanilla-cream);
+            color: var(--chocolate-brown);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--cookie-dough);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            color: var(--chocolate-brown);
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--berry-pink);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--chocolate-brown);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--berry-pink);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--berry-pink);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #f06292;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--chocolate-brown);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--cookie-dough);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        /* Featured Recipes Section */
+        .featured-recipes {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            display: inline-block;
+            background-color: var(--cookie-dough);
+            padding: 0 20px;
+            border-radius: 30px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--berry-pink);
+            border-radius: 2px;
+        }
+        
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .recipe-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .recipe-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .recipe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .recipe-card:hover .recipe-image img {
+            transform: scale(1.1);
+        }
+        
+        .recipe-info {
+            padding: 20px;
+        }
+        
+        .recipe-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--chocolate-brown);
+        }
+        
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .recipe-difficulty {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .easy {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+        
+        .medium {
+            background-color: #fff9c4;
+            color: #f57f17;
+        }
+        
+        .hard {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+        
+        .recipe-description {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .recipe-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .save-recipe {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .save-recipe:hover, .save-recipe.saved {
+            color: var(--berry-pink);
+        }
+        
+        /* Filter Section */
+        .recipe-filters {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        
+        .filter-group h4 {
+            margin-bottom: 10px;
+            color: var(--chocolate-brown);
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 6px 12px;
+            background-color: var(--vanilla-cream);
+            border: 1px solid var(--cookie-dough);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--berry-pink);
+            color: white;
+            border-color: var(--berry-pink);
+        }
+        
+        /* Testimonial Section */
+        .testimonials {
+            padding: 60px 0;
+            background-color: var(--cookie-dough);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-author h4 {
+            margin-bottom: 5px;
+            color: var(--chocolate-brown);
+        }
+        
+        .testimonial-rating {
+            color: #ffc107;
+            font-size: 14px;
+        }
+        
+        .testimonial-content {
+            color: #555;
+            font-style: italic;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--sprinkle-blue);
+            color: white;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 25px;
+            background-color: var(--berry-pink);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #f06292;
+        }
+        
+        /* Disclaimer Section */
+        .disclaimer {
+            padding: 40px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .disclaimer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .disclaimer h3 {
+            margin-bottom: 15px;
+            color: var(--chocolate-brown);
+        }
+        
+        .disclaimer p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--chocolate-brown);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--berry-pink);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--berry-pink);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--berry-pink);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Buki<span>Cookie</span></h1>
+            </div>
+            <nav>
+                <ul>
+                     <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                     <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div>
+                <h2>Baking Joy, One Cookie at a Time</h2>
+                <p>Discover, bake, and share the world of cookies with our global community of baking enthusiasts.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Browse Recipes</a>
+                    <a href="#" class="btn btn-secondary">Take the Cookie Quiz</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Recipes -->
+    <section class="featured-recipes container">
+        <div class="section-title">
+            <h2>Featured Recipes</h2>
+        </div>
+        
+        <div class="recipe-filters">
+            <div class="filter-group">
+                <h4>Filter by Type:</h4>
+                <div class="filter-options">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Soft</button>
+                    <button class="filter-btn">Crunchy</button>
+                    <button class="filter-btn">Chewy</button>
+                    <button class="filter-btn">No-Bake</button>
+                    <button class="filter-btn">Gluten-Free</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h4>Filter by Difficulty:</h4>
+                <div class="filter-options">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Beginner</button>
+                    <button class="filter-btn">Intermediate</button>
+                    <button class="filter-btn">Advanced</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h4>Filter by Time:</h4>
+                <div class="filter-options">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Quick (Under 30 min)</button>
+                    <button class="filter-btn">Medium (30-60 min)</button>
+                    <button class="filter-btn">Long (60+ min)</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="recipe-grid">
+            <!-- Recipe Card 1 -->
+            <div class="recipe-card">
+                <div class="recipe-image">
+                    <img src="p1.webp" alt="Chocolate Chip Cookies">
+                </div>
+                <div class="recipe-info">
+                    <h3>Classic Chocolate Chip</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 15 min</span>
+                        <span class="recipe-difficulty easy">Easy</span>
+                    </div>
+                    <p class="recipe-description">The timeless classic with melty chocolate chunks and a perfect golden finish.</p>
+                    <div class="recipe-actions">
+                        <a href="#" class="btn-small btn-primary">View Recipe</a>
+                        <button class="save-recipe">♥</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recipe Card 2 -->
+            <div class="recipe-card">
+                <div class="recipe-image">
+                    <img src="p2.avif" alt="Macarons">
+                </div>
+                <div class="recipe-info">
+                    <h3>French Macarons</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 45 min</span>
+                        <span class="recipe-difficulty hard">Hard</span>
+                    </div>
+                    <p class="recipe-description">Delicate almond meringue cookies with a creamy filling - a French patisserie classic.</p>
+                    <div class="recipe-actions">
+                        <a href="#" class="btn-small btn-primary">View Recipe</a>
+                        <button class="save-recipe">♥</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recipe Card 3 -->
+            <div class="recipe-card">
+                <div class="recipe-image">
+                    <img src="p3.webp" alt="Oatmeal Raisin Cookies">
+                </div>
+                <div class="recipe-info">
+                    <h3>Oatmeal Raisin</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 25 min</span>
+                        <span class="recipe-difficulty medium">Medium</span>
+                    </div>
+                    <p class="recipe-description">Hearty oats, plump raisins, and warm cinnamon make this a comforting favorite.</p>
+                    <div class="recipe-actions">
+                        <a href="#" class="btn-small btn-primary">View Recipe</a>
+                        <button class="save-recipe">♥</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recipe Card 4 -->
+            <div class="recipe-card">
+                <div class="recipe-image">
+                    <img src="p4.webp" alt="Sugar Cookies">
+                </div>
+                <div class="recipe-info">
+                    <h3>Decorated Sugar Cookies</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 60 min</span>
+                        <span class="recipe-difficulty medium">Medium</span>
+                    </div>
+                    <p class="recipe-description">Buttery vanilla cookies perfect for decorating with royal icing and sprinkles.</p>
+                    <div class="recipe-actions">
+                        <a href="#" class="btn-small btn-primary">View Recipe</a>
+                        <button class="save-recipe">♥</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recipe Card 5 -->
+            <div class="recipe-card">
+                <div class="recipe-image">
+                    <img src="p5.webp" alt="Peanut Butter Cookies">
+                </div>
+                <div class="recipe-info">
+                    <h3>Peanut Butter Crisscross</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 20 min</span>
+                        <span class="recipe-difficulty easy">Easy</span>
+                    </div>
+                    <p class="recipe-description">Rich peanut butter flavor with the classic fork-pressed design.</p>
+                    <div class="recipe-actions">
+                        <a href="#" class="btn-small btn-primary">View Recipe</a>
+                        <button class="save-recipe">♥</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recipe Card 6 -->
+            <div class="recipe-card">
+                <div class="recipe-image">
+                    <img src="p6.avif" alt="Snickerdoodles">
+                </div>
+                <div class="recipe-info">
+                    <h3>Cinnamon Snickerdoodles</h3>
+                    <div class="recipe-meta">
+                        <span>Prep: 30 min</span>
+                        <span class="recipe-difficulty easy">Easy</span>
+                    </div>
+                    <p class="recipe-description">Soft, pillowy cookies rolled in cinnamon sugar with a slight tang.</p>
+                    <div class="recipe-actions">
+                        <a href="#" class="btn-small btn-primary">View Recipe</a>
+                        <button class="save-recipe">♥</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Bakers Say</h2>
+            </div>
+            
+            <div class="testimonial-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                       
+                        <div class="testimonial-author">
+                            <h4>Sara J.</h4>
+                            <div class="testimonial-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"I've baked all my life, but BukiCookie introduced me to so many global recipes I'd never tried before. The Italian Biscotti recipe is now a family favorite!"</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                       
+                        <div class="testimonial-author">
+                            <h4>Mick T.</h4>
+                            <div class="testimonial-rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"As a beginner baker, I was intimidated at first. But the step-by-step videos and difficulty ratings helped me build confidence. My cookies actually look like the pictures now!"</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                     
+                        <div class="testimonial-author">
+                            <h4>Priki K.</h4>
+                            <div class="testimonial-rating">★★★★☆</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"The gluten-free section has been a game-changer for me. Finally, cookies that taste just as good as traditional ones! The almond flour chocolate chip recipe is perfection."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Get Fresh Recipes Weekly</h2>
+            <p>Join our baking community and receive seasonal recipes, baking tips, and exclusive offers straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="container">
+            <div class="disclaimer-content">
+                <h3>Important Disclaimer</h3>
+                <p>All recipes on BukiCookie are provided for informational and educational purposes only. While we strive for accuracy, results may vary based on ingredients, equipment, and individual techniques.</p>
+                <p>BukiCookie is not responsible for any adverse effects resulting from the use of or reliance on any recipes or information provided on this website. Always exercise caution when handling kitchen equipment and hot surfaces.</p>
+                <p>If you have food allergies or dietary restrictions, please carefully review all ingredients and consult with a healthcare professional if needed. Some recipes may contain common allergens such as nuts, dairy, eggs, wheat, and other potential allergens.</p>
+                <p>Nutritional information, when provided, is estimated and should not be considered as professional dietary advice.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BukiCookie</h3>
+                    <p>Baking joy, one cookie at a time. Join our global community of cookie enthusiasts!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">Recipe Library</a></li>
+                        <li><a href="#">Global Cookie Map</a></li>
+                        <li><a href="#">Baking Challenges</a></li>
+                        <li><a href="#">Live Bake-Alongs</a></li>
+                        <li><a href="#">Cookiepedia</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">Baker Profiles</a></li>
+                        <li><a href="#">Monthly Spotlights</a></li>
+                        <li><a href="#">Discussion Forums</a></li>
+                        <li><a href="#">Recipe Contests</a></li>
+                        <li><a href="#">Buki Points</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 BukiCookie. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- Simple script for recipe saving functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const saveButtons = document.querySelectorAll('.save-recipe');
+            
+            saveButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('saved');
+                    if (this.classList.contains('saved')) {
+                        this.textContent = '♥';
+                    } else {
+                        this.textContent = '♥';
+                    }
+                });
+            });
+            
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons in the same group
+                    const parentGroup = this.closest('.filter-options');
+                    parentGroup.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Here you would normally filter recipes
+                    // This is just a placeholder for the functionality
+                    console.log('Filter by: ' + this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

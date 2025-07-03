@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - BukiCookie</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --cookie-dough: #EEDBC2;
+            --chocolate-brown: #8D6E63;
+            --vanilla-cream: #FFF8E1;
+            --berry-pink: #F48FB1;
+            --sprinkle-blue: #81D4FA;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', cursive, sans-serif;
+        }
+        
+        body {
+            background-color: var(--vanilla-cream);
+            color: var(--chocolate-brown);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--cookie-dough);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            color: var(--chocolate-brown);
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--berry-pink);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--chocolate-brown);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--berry-pink);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Privacy Content */
+        .privacy-content {
+            padding: 60px 0;
+        }
+        
+        .privacy-section {
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .privacy-section h2 {
+            color: var(--chocolate-brown);
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid var(--berry-pink);
+            padding-bottom: 10px;
+        }
+        
+        .privacy-section h3 {
+            color: var(--chocolate-brown);
+            margin: 25px 0 15px;
+            font-size: 22px;
+        }
+        
+        .privacy-point {
+            margin-bottom: 25px;
+        }
+        
+        .privacy-point h4 {
+            color: var(--berry-pink);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .privacy-point p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--chocolate-brown);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--berry-pink);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--berry-pink);
+        }
+        
+        .contact-info {
+            margin-top: 15px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--berry-pink);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .privacy-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Buki<span>Cookie</span></h1>
+            </div>
+            <nav>
+                <ul>
+                      <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                     <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div>
+                <h2>Privacy Policy</h2>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Privacy Content -->
+    <section class="privacy-content container">
+        <div class="privacy-section">
+            <h2>Introduction</h2>
+            <p>Welcome to BukiCookie's Privacy Policy. This document outlines how we collect, use, protect, and share information about our users. We are committed to protecting your privacy and ensuring the security of your personal information while providing you with an exceptional baking experience.</p>
+            
+            <p>This policy applies to all services offered by BukiCookie through our website, mobile applications, and related services. By accessing or using our services, you agree to the collection and use of information in accordance with this policy. We regularly review our privacy practices and may update this policy from time to time.</p>
+            
+            <p>If you have any questions about our Privacy Policy, please contact us using the information provided at the bottom of this page. We encourage you to read this policy carefully to understand our practices regarding your personal information and how we will treat it.</p>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Information We Collect</h2>
+            
+            <div class="privacy-point">
+                <h4>1. Personal Identification Information</h4>
+                <p>We collect personal information when you register for an account, subscribe to our newsletter, participate in surveys, or interact with our services. This may include your name, email address, phone number, mailing address, and payment information. We use this information to provide personalized services, process transactions, and communicate with you about your account.</p>
+                <p>This information helps us create and manage your account, verify your identity, and provide customer support. We only collect personal information that is necessary for these purposes and always strive to minimize the amount of data we collect and store.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>2. Usage Data</h4>
+                <p>We automatically collect information about how you interact with our website and services. This includes your IP address, browser type, device information, pages visited, time spent on pages, and other diagnostic data. This information helps us understand user behavior and improve our services.</p>
+                <p>Usage data is collected through cookies and similar tracking technologies. We analyze this data to identify trends, administer the site, track user movements, and gather demographic information. This helps us optimize our content and personalize your experience.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>3. Cookies and Tracking Technologies</h4>
+                <p>We use cookies and similar tracking technologies to track activity on our service and hold certain information. Cookies are files with small amounts of data which may include an anonymous unique identifier. They help us remember your preferences and provide personalized content.</p>
+                <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, some portions of our service may not function properly. We use both session cookies (which expire when you close your browser) and persistent cookies (which stay on your device until deleted).</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>4. User Content</h4>
+                <p>When you submit recipes, comments, photos, or other content to our platform, we collect and store this information. This content may include personal information if you choose to include it. We use this content to provide our services and may display it publicly as part of our community features.</p>
+                <p>You retain ownership of any intellectual property rights that you hold in your content. By submitting content, you grant us a license to use, host, store, reproduce, modify, and display this content for the purpose of operating and improving our services.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>5. Third-Party Information</h4>
+                <p>We may receive information about you from third parties, such as social media platforms if you choose to connect your account. This may include your profile information and friend lists depending on your privacy settings on those platforms.</p>
+                <p>We may also receive information from partners who provide services on our behalf or who help us analyze how our services are used. This helps us supplement our records, improve the personalization of our service, and prevent fraud.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>6. Payment Information</h4>
+                <p>When you make purchases through our service, we collect payment information such as credit card numbers and billing addresses. This information is processed securely by our payment processors and we do not store full credit card numbers on our servers.</p>
+                <p>We use this information to complete transactions, prevent fraud, and comply with financial regulations. All payment transactions are encrypted using SSL technology and processed in compliance with PCI-DSS standards.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>7. Location Data</h4>
+                <p>With your permission, we may collect and process information about your device's location. This helps us provide location-based services like showing you recipes popular in your region or connecting you with local baking communities.</p>
+                <p>We use various technologies to determine location, including IP address, GPS, and other sensors that may provide information about nearby devices, Wi-Fi access points, and cell towers. You can enable or disable location services when you use our service at any time through your device settings.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>8. Communication Data</h4>
+                <p>We collect information when you communicate with us via email, chat, or other channels. This includes the content of your messages and any attachments you send. We use this information to respond to your inquiries and improve our customer service.</p>
+                <p>We may analyze communication data to identify common issues and improve our services. This helps us train our support team and develop better self-help resources for our users.</p>
+            </div>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>How We Use Your Information</h2>
+            
+            <div class="privacy-point">
+                <h4>9. Providing and Improving Services</h4>
+                <p>We use your information to operate, maintain, and improve our services. This includes personalizing your experience, developing new features, and ensuring our platform functions properly. Your data helps us understand how users interact with our services so we can make informed improvements.</p>
+                <p>We analyze usage patterns to optimize our website's performance and layout. This includes testing different interface designs and measuring user engagement to determine what works best for our community.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>10. Communication</h4>
+                <p>We use your contact information to send you important updates about our services, respond to your inquiries, and provide customer support. This includes transactional emails like account verification and password resets.</p>
+                <p>With your consent, we may also send you promotional communications about new features, special offers, and baking tips. You can opt out of these communications at any time using the unsubscribe link in each email or through your account settings.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>11. Personalization</h4>
+                <p>We use your information to personalize your experience by showing you content and recommendations tailored to your preferences. This includes suggesting recipes you might like based on your browsing history and saved favorites.</p>
+                <p>Our algorithms analyze your activity to create a customized feed of content. The more you interact with our services, the better we can tailor your experience to match your baking interests and skill level.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>12. Community Features</h4>
+                <p>We use your information to enable social features like commenting, recipe sharing, and community discussions. This helps create an engaging environment where bakers can connect and share their passion.</p>
+                <p>Your profile information and contributions help other users learn from your baking experiences. We may highlight popular contributors or feature exceptional content to inspire our community.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>13. Security and Fraud Prevention</h4>
+                <p>We use your information to maintain the security of our services and prevent fraudulent activity. This includes detecting and preventing unauthorized access, investigating suspicious activity, and enforcing our terms of service.</p>
+                <p>Our security systems analyze patterns in user behavior to identify potential threats. We may temporarily restrict accounts that show signs of compromise while we verify their authenticity.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>14. Legal Compliance</h4>
+                <p>We may use your information to comply with applicable laws, regulations, and legal processes. This includes responding to lawful requests from public authorities, such as subpoenas or court orders.</p>
+                <p>In cases where we believe disclosure is necessary to protect our rights, your safety, or the safety of others, we may share information as permitted or required by law. We carefully review all legal requests to ensure they are valid and appropriately scoped.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>15. Research and Development</h4>
+                <p>We may use aggregated and anonymized data for research purposes to improve our understanding of baking trends and user preferences. This helps us develop new features and services that meet our community's needs.</p>
+                <p>Our research focuses on improving the baking experience for all users. We never use personally identifiable information for these purposes without your explicit consent.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>16. Marketing and Advertising</h4>
+                <p>We may use your information to show you relevant advertisements and measure their effectiveness. This includes displaying ads for baking products or services that may interest you based on your activity.</p>
+                <p>We strive to make our advertising as relevant and useful as possible while respecting your privacy. You can control your advertising preferences through your account settings or by adjusting your device's advertising identifier.</p>
+            </div>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Information Sharing and Disclosure</h2>
+            
+            <div class="privacy-point">
+                <h4>17. Service Providers</h4>
+                <p>We may share your information with third-party service providers who perform services on our behalf. These include hosting providers, payment processors, analytics services, and customer support platforms. These providers are contractually obligated to protect your data and only use it for the services they provide to us.</p>
+                <p>Our service providers help us operate more efficiently and deliver better experiences. We carefully vet all providers to ensure they meet our security and privacy standards before sharing any user information.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>18. Business Transfers</h4>
+                <p>In the event of a merger, acquisition, reorganization, bankruptcy, or other sale of all or a portion of our assets, your information may be transferred as part of that transaction. We will notify you of any such change in ownership or control of your personal information.</p>
+                <p>Any successor entity would be required to honor the terms of our Privacy Policy or provide you with notice and the opportunity to opt out of any materially different privacy practices.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>19. Legal Requirements</h4>
+                <p>We may disclose your information if required to do so by law or in response to valid requests by public authorities. This includes responding to court orders, subpoenas, or other legal processes when we believe in good faith that disclosure is necessary.</p>
+                <p>We carefully review all legal requests to ensure they are valid and appropriately scoped. Where possible, we will notify affected users about these requests unless prohibited by law or court order.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>20. Protection of Rights</h4>
+                <p>We may share information when we believe it's necessary to investigate, prevent, or take action regarding illegal activities, suspected fraud, situations involving potential threats to the safety of any person, violations of our Terms of Service, or as evidence in litigation.</p>
+                <p>This includes sharing information with law enforcement or other government agencies when we believe in good faith that such disclosure is necessary to protect our rights or the rights of others.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>21. Aggregated or Anonymized Data</h4>
+                <p>We may share aggregated or anonymized information that does not directly identify you with partners or the public. This might include trends about baking habits, popular recipe categories, or demographic information about our user base.</p>
+                <p>This data helps industry researchers, baking product manufacturers, and culinary schools understand broader trends while protecting individual user privacy.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>22. With Your Consent</h4>
+                <p>We will share personal information with companies, organizations, or individuals outside of BukiCookie when we have your explicit consent to do so. This might include connecting your account with third-party services or entering you into baking competitions.</p>
+                <p>We will always clearly explain what information will be shared and with whom before obtaining your consent. You can revoke this consent at any time through your account settings.</p>
+            </div>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Data Security</h2>
+            
+            <div class="privacy-point">
+                <h4>23. Security Measures</h4>
+                <p>We implement appropriate technical and organizational measures to protect your personal information against accidental or unlawful destruction, loss, alteration, unauthorized disclosure, or access. Our security measures include encryption, access controls, and regular security audits.</p>
+                <p>All data transmitted between your device and our servers is encrypted using SSL/TLS technology. We regularly update our systems and applications to protect against known vulnerabilities.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>24. Data Retention</h4>
+                <p>We retain your personal information only for as long as necessary to provide you with our services and for legitimate business purposes. Retention periods vary depending on the type of data and its purpose. When we no longer need to retain your information, we securely delete or anonymize it.</p>
+                <p>Account information is generally retained while your account remains active. Transaction records may be kept longer to comply with financial regulations. Usage data is typically aggregated and anonymized after a set period.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>25. Incident Response</h4>
+                <p>In the event of a data breach that affects your personal information, we will notify you and the appropriate authorities as required by law. Our incident response team follows established procedures to contain, assess, and remediate any security incidents.</p>
+                <p>We maintain comprehensive logs and monitoring systems to help detect and investigate potential security incidents. All employees receive regular security training to help prevent breaches.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>26. Account Security</h4>
+                <p>You play an important role in protecting your account by choosing a strong password and keeping it confidential. We offer additional security features like two-factor authentication to help secure your account.</p>
+                <p>We will never ask for your password via email or phone. If you suspect unauthorized access to your account, please notify us immediately so we can help secure it.</p>
+            </div>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Your Rights and Choices</h2>
+            
+            <div class="privacy-point">
+                <h4>27. Access and Correction</h4>
+                <p>You have the right to access the personal information we hold about you and to request corrections if it's inaccurate or incomplete. You can view and update much of your information directly through your account settings.</p>
+                <p>For information not available in your account settings, you can submit a request through our contact form. We may need to verify your identity before processing certain requests to protect your privacy.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>28. Data Portability</h4>
+                <p>Upon request, we will provide you with a copy of your personal data in a structured, commonly used, and machine-readable format. This allows you to transfer your information to another service if you choose.</p>
+                <p>Your data portability rights apply to information you've provided to us that we process automatically based on your consent or to fulfill a contract. This may include your profile information, recipe submissions, and preferences.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>29. Deletion Requests</h4>
+                <p>You may request deletion of your personal information under certain circumstances, such as when the data is no longer necessary for the purposes collected. You can delete your account at any time through your account settings.</p>
+                <p>Some information may be retained after account deletion where necessary for legal compliance, dispute resolution, or to prevent fraud. We will permanently delete or anonymize all other personal information associated with your account.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>30. Opting Out</h4>
+                <p>You can opt out of receiving promotional communications from us by using the unsubscribe link in our emails or through your account preferences. You may still receive transactional messages related to your account or our ongoing business relationship.</p>
+                <p>You can also control many types of data collection through your device settings or browser options. Most browsers allow you to block cookies or send do-not-track signals, though this may affect some features of our service.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>31. Restricting Processing</h4>
+                <p>In certain circumstances, you may have the right to restrict how we process your personal information. This means we'll store your data but not use it for certain purposes while the restriction is in place.</p>
+                <p>You might request restriction if you contest the accuracy of your data, when processing is unlawful but you oppose deletion, or when we no longer need the data but you require it for legal claims.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>32. Objecting to Processing</h4>
+                <p>You may object to certain types of processing, such as direct marketing or automated decision-making. We will comply with your objection unless we have compelling legitimate grounds for the processing that override your interests.</p>
+                <p>For marketing communications, you can object at any time and we will stop processing your data for these purposes. For other processing activities, we'll evaluate your objection based on the specific circumstances.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>33. Withdrawing Consent</h4>
+                <p>Where we rely on your consent to process personal information, you have the right to withdraw that consent at any time. Withdrawal does not affect the lawfulness of processing based on consent before its withdrawal.</p>
+                <p>You can withdraw consent through your account settings or by contacting us. Some services may no longer be available if you withdraw necessary consents.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>34. Complaints</h4>
+                <p>If you believe we've violated your privacy rights, you have the right to lodge a complaint with the relevant data protection authority in your jurisdiction. We encourage you to contact us first so we can try to resolve your concerns.</p>
+                <p>We take all privacy complaints seriously and will investigate each one promptly. Our goal is to resolve any issues to your satisfaction while complying with applicable privacy laws.</p>
+            </div>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>International Data Transfers</h2>
+            
+            <div class="privacy-point">
+                <h4>35. Global Operations</h4>
+                <p>As a global platform, we may transfer, store, and process your information in countries other than your own, including the United States. These countries may have data protection laws that differ from those in your jurisdiction.</p>
+                <p>We implement appropriate safeguards for these transfers as required by applicable laws. This may include standard contractual clauses approved by the European Commission or other legal mechanisms to ensure adequate protection.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>36. Data Processing Agreements</h4>
+                <p>When we transfer data to third parties in other countries, we ensure they provide adequate protection through contractual commitments. These agreements require recipients to protect personal information with the same standards as required under applicable laws.</p>
+                <p>We carefully select international service providers who demonstrate strong privacy and security practices. Our contracts with these providers specify their obligations regarding data protection and security.</p>
+            </div>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Children's Privacy</h2>
+            
+            <div class="privacy-point">
+                <h4>37. Age Restrictions</h4>
+                <p>Our services are not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will take steps to delete that information.</p>
+                <p>In some jurisdictions, higher age limits may apply for certain services. Parents or guardians can contact us to review, update, or delete any information we may have about their child.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>38. Parental Controls</h4>
+                <p>We encourage parents and guardians to monitor their children's online activities and consider using parental control tools to help provide a safe online environment. These tools can prevent children from submitting personal information without parental consent.</p>
+                <p>For younger baking enthusiasts, we recommend using our services under adult supervision. Some features like community discussions may not be appropriate for all ages.</p>
+            </div>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Changes to This Policy</h2>
+            
+            <div class="privacy-point">
+                <h4>39. Policy Updates</h4>
+                <p>We may update our Privacy Policy from time to time to reflect changes in our practices, technologies, legal requirements, and other factors. When we make changes, we'll revise the "Last Updated" date at the top of this policy.</p>
+                <p>If we make material changes that affect how we handle your personal information, we'll provide prominent notice before the changes take effect. This may include email notifications or in-service announcements.</p>
+            </div>
+            
+            <div class="privacy-point">
+                <h4>40. Your Acceptance</h4>
+                <p>By continuing to use our services after changes to this policy become effective, you agree to be bound by the revised policy. We encourage you to periodically review this page for the latest information on our privacy practices.</p>
+                <p>If you do not agree with any changes to the policy, you may need to discontinue using our services and delete your account. Your continued use constitutes acceptance of the updated terms.</p>
+            </div>
+        </div>
+        
+        <div class="privacy-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+            <p><strong>Email:</strong> privacy@bukicookie.com</p>
+            <p><strong>Mailing Address:</strong> BukiCookie Privacy Office, 123 Baker Street, Suite 400, San Francisco, CA 94107, USA</p>
+            <p>We aim to respond to all privacy-related inquiries within 30 days. For account-specific requests, please include your username and any relevant details to help us verify your identity and locate your information.</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BukiCookie</h3>
+                    <p>Baking joy, one cookie at a time. Join our global community of cookie enthusiasts!</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Baker Street, San Francisco, CA 94107</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> hello@bukicookie.com</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">Recipe Library</a></li>
+                        <li><a href="#">Global Cookie Map</a></li>
+                        <li><a href="#">Baking Challenges</a></li>
+                        <li><a href="#">Live Bake-Alongs</a></li>
+                        <li><a href="#">Cookiepedia</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">Baker Profiles</a></li>
+                        <li><a href="#">Monthly Spotlights</a></li>
+                        <li><a href="#">Discussion Forums</a></li>
+                        <li><a href="#">Recipe Contests</a></li>
+                        <li><a href="#">Buki Points</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 BukiCookie. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="cookies.html">Cookie Policy</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

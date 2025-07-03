@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BukiCookie Blog - Baking Tips & Stories</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --cookie-dough: #EEDBC2;
+            --chocolate-brown: #8D6E63;
+            --vanilla-cream: #FFF8E1;
+            --berry-pink: #F48FB1;
+            --sprinkle-blue: #81D4FA;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', cursive, sans-serif;
+        }
+        
+        body {
+            background-color: var(--vanilla-cream);
+            color: var(--chocolate-brown);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--cookie-dough);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            color: var(--chocolate-brown);
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--berry-pink);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--chocolate-brown);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--berry-pink);
+            color: white;
+        }
+        
+        /* Blog Hero Section */
+        .blog-hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1607478900766-3f9a0a4b8a0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .blog-hero-content {
+            width: 100%;
+        }
+        
+        .blog-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .blog-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* Blog Content */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            padding: 40px 0;
+        }
+        
+        /* Main Blog Posts */
+        .blog-posts {
+            display: grid;
+            gap: 40px;
+        }
+        
+        .blog-post {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .post-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .blog-post:hover .post-image img {
+            transform: scale(1.05);
+        }
+        
+        .post-content {
+            padding: 25px;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .post-category {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: var(--cookie-dough);
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--chocolate-brown);
+        }
+        
+        .post-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--chocolate-brown);
+        }
+        
+        .post-excerpt {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .read-more {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--berry-pink);
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            background-color: #f06292;
+            transform: translateY(-2px);
+        }
+        
+        /* Blog Sidebar */
+        .blog-sidebar {
+            display: grid;
+            gap: 30px;
+            align-content: start;
+        }
+        
+        .sidebar-widget {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .widget-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--cookie-dough);
+            color: var(--chocolate-brown);
+        }
+        
+        .search-form {
+            display: flex;
+        }
+        
+        .search-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--cookie-dough);
+            border-radius: 20px 0 0 20px;
+        }
+        
+        .search-form button {
+            padding: 10px 15px;
+            background-color: var(--berry-pink);
+            color: white;
+            border: none;
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+        }
+        
+        .categories-list, .popular-posts {
+            list-style: none;
+        }
+        
+        .categories-list li, .popular-posts li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--cookie-dough);
+        }
+        
+        .categories-list li:last-child, .popular-posts li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .categories-list a, .popular-posts a {
+            color: var(--chocolate-brown);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .categories-list a:hover, .popular-posts a:hover {
+            color: var(--berry-pink);
+        }
+        
+        .popular-posts .post-date {
+            display: block;
+            font-size: 12px;
+            color: #777;
+            margin-top: 3px;
+        }
+        
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--vanilla-cream);
+            border-radius: 15px;
+            font-size: 12px;
+            color: var(--chocolate-brown);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background-color: var(--berry-pink);
+            color: white;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--sprinkle-blue);
+            color: white;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 25px;
+            background-color: var(--berry-pink);
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #f06292;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .page-numbers {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+        
+        .page-numbers a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            color: var(--chocolate-brown);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .page-numbers a:hover, .page-numbers a.active {
+            background-color: var(--berry-pink);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--chocolate-brown);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--berry-pink);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--berry-pink);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--berry-pink);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .blog-hero h1 {
+                font-size: 36px;
+            }
+            
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Buki<span>Cookie</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                     <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container blog-hero-content">
+            <h1>BukiCookie Blog</h1>
+            <p>Baking tips, cookie stories, and sweet inspiration from our global community</p>
+        </div>
+    </section>
+    
+    <!-- Blog Content -->
+    <div class="container blog-container">
+        <main class="blog-posts">
+            <!-- Blog Post 1 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="b1.avif" alt="Cookie Baking Tips">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span>June 15, 2023</span>
+                        <span class="post-category">Baking Tips</span>
+                    </div>
+                    <h2 class="post-title">10 Secrets to Perfectly Chewy Cookies Every Time</h2>
+                    <p class="post-excerpt">Discover the science behind chewy cookies and learn professional techniques to achieve that perfect texture in your homemade batches. From ingredient ratios to baking times, we've got you covered...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 2 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="b2.webp" alt="Global Cookies">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span>June 8, 2023</span>
+                        <span class="post-category">World Tour</span>
+                    </div>
+                    <h2 class="post-title">Cookie Traditions Around the World: A Sweet Global Journey</h2>
+                    <p class="post-excerpt">From Italian biscotti to Middle Eastern ma'amoul, explore how different cultures celebrate with cookies. We take you on a delicious journey through cookie traditions across continents...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 3 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="b3.webp" alt="Macaron Techniques">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span>June 1, 2023</span>
+                        <span class="post-category">Techniques</span>
+                    </div>
+                    <h2 class="post-title">Mastering French Macarons: A Step-by-Step Guide</h2>
+                    <p class="post-excerpt">French macarons may seem intimidating, but with our detailed guide, you'll be creating perfect shells in no time. Learn the secrets of proper macaronage, resting times, and oven temperatures...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 4 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="b4.avif" alt="Cookie Decorating">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span>May 25, 2023</span>
+                        <span class="post-category">Decorating</span>
+                    </div>
+                    <h2 class="post-title">Cookie Decorating 101: Essential Tools and Techniques</h2>
+                    <p class="post-excerpt">Start your cookie decorating journey with our beginner's guide to tools, royal icing consistencies, and basic piping techniques. Plus, get our favorite foolproof royal icing recipe...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <!-- Blog Post 5 -->
+            <article class="blog-post">
+                <div class="post-image">
+                    <img src="b5.webp" alt="Healthy Cookies">
+                </div>
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span>May 18, 2023</span>
+                        <span class="post-category">Health</span>
+                    </div>
+                    <h2 class="post-title">Healthy Cookie Alternatives That Actually Taste Good</h2>
+                    <p class="post-excerpt">Who says cookies can't be healthy? Discover our tested recipes for guilt-free treats using alternative flours, natural sweeteners, and nutrient-packed add-ins that satisfy your sweet tooth...</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <ul class="page-numbers">
+                    <li><a href="#" class="active">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </main>
+        
+        <!-- Blog Sidebar -->
+        <aside class="blog-sidebar">
+            <!-- Search Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Search</h3>
+                <form class="search-form">
+                    <input type="text" placeholder="Search the blog...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            
+            <!-- Categories Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Categories</h3>
+                <ul class="categories-list">
+                    <li><a href="#">Baking Tips</a></li>
+                    <li><a href="#">Cookie Recipes</a></li>
+                    <li><a href="#">Decorating</a></li>
+                    <li><a href="#">World Tour</a></li>
+                    <li><a href="#">Health & Nutrition</a></li>
+                    <li><a href="#">Baking Science</a></li>
+                    <li><a href="#">Community Stories</a></li>
+                </ul>
+            </div>
+            
+            <!-- Popular Posts Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Popular Posts</h3>
+                <ul class="popular-posts">
+                    <li>
+                        <a href="#">The Ultimate Chocolate Chip Cookie Showdown</a>
+                        <span class="post-date">May 10, 2023</span>
+                    </li>
+                    <li>
+                        <a href="#">5 Common Cookie Mistakes and How to Fix Them</a>
+                        <span class="post-date">April 28, 2023</span>
+                    </li>
+                    <li>
+                        <a href="#">Gluten-Free Baking Without Compromise</a>
+                        <span class="post-date">April 15, 2023</span>
+                    </li>
+                    <li>
+                        <a href="#">Cookie Decorating for Beginners</a>
+                        <span class="post-date">March 30, 2023</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Tags Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Tags</h3>
+                <div class="tags-cloud">
+                    <a href="#" class="tag">chocolate</a>
+                    <a href="#" class="tag">holiday</a>
+                    <a href="#" class="tag">vegan</a>
+                    <a href="#" class="tag">gluten-free</a>
+                    <a href="#" class="tag">decorating</a>
+                    <a href="#" class="tag">techniques</a>
+                    <a href="#" class="tag">equipment</a>
+                    <a href="#" class="tag">history</a>
+                    <a href="#" class="tag">science</a>
+                    <a href="#" class="tag">kids</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Get Fresh Recipes Weekly</h2>
+            <p>Join our baking community and receive seasonal recipes, baking tips, and exclusive offers straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BukiCookie</h3>
+                    <p>Baking joy, one cookie at a time. Join our global community of cookie enthusiasts!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">Recipe Library</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Baking Challenges</a></li>
+                        <li><a href="#">Live Bake-Alongs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">Baker Profiles</a></li>
+                        <li><a href="#">Monthly Spotlights</a></li>
+                        <li><a href="#">Discussion Forums</a></li>
+                        <li><a href="#">Recipe Contests</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 BukiCookie. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- Simple script for active navigation link -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page URL
+            var currentPage = window.location.pathname.split('/').pop();
+            
+            // Get all navigation links
+            var navLinks = document.querySelectorAll('nav ul li a');
+            
+            // Loop through each navigation link
+            navLinks.forEach(function(link) {
+                // Get link's href attribute
+                var linkPage = link.getAttribute('href');
+                
+                // Check if link's href matches current page
+                if (linkPage === currentPage) {
+                    // Add active class to matching link
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - BukiCookie</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --cookie-dough: #EEDBC2;
+            --chocolate-brown: #8D6E63;
+            --vanilla-cream: #FFF8E1;
+            --berry-pink: #F48FB1;
+            --sprinkle-blue: #81D4FA;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Neue', cursive, sans-serif;
+        }
+        
+        body {
+            background-color: var(--vanilla-cream);
+            color: var(--chocolate-brown);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--cookie-dough);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            color: var(--chocolate-brown);
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--berry-pink);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--chocolate-brown);
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--berry-pink);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Terms Content */
+        .terms-content {
+            padding: 60px 0;
+        }
+        
+        .terms-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+        
+        .terms-section h2 {
+            color: var(--chocolate-brown);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--cookie-dough);
+        }
+        
+        .terms-section h3 {
+            color: var(--berry-pink);
+            margin: 25px 0 15px;
+        }
+        
+        .terms-section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .terms-list {
+            margin-left: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .terms-list li {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        /* Disclaimer Section */
+        .disclaimer {
+            padding: 40px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .disclaimer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .disclaimer h3 {
+            margin-bottom: 15px;
+            color: var(--chocolate-brown);
+        }
+        
+        .disclaimer p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--chocolate-brown);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--berry-pink);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--berry-pink);
+        }
+        
+        .footer-column p {
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--berry-pink);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Buki<span>Cookie</span></h1>
+            </div>
+            <nav>
+                <ul>
+                      <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                     <li><a href="cookies.html">Cookies</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div>
+                <h2>Terms of Service</h2>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Terms Content -->
+    <section class="terms-content container">
+        <div class="terms-section">
+            <h2>BukiCookie Terms of Service</h2>
+            <p>Last Updated: January 1, 2023</p>
+            
+            <p>Welcome to BukiCookie! These Terms of Service ("Terms") govern your use of our website, services, and applications (collectively, the "Service"). By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the Service.</p>
+            
+            <h3>1. Acceptance of Terms</h3>
+            <p>By using BukiCookie, you confirm that you have read, understood, and agreed to be bound by these Terms. If you are using the Service on behalf of an organization, you are agreeing to these Terms for that organization and representing that you have the authority to bind that organization to these Terms. The Service is available only to individuals who are at least 13 years old.</p>
+            
+            <h3>2. Description of Service</h3>
+            <p>BukiCookie provides an online platform for sharing, discovering, and discussing cookie recipes. Our services include recipe databases, community forums, instructional content, and related features. We may add, change, or remove features at any time without notice. We reserve the right to modify or discontinue the Service at our discretion.</p>
+            
+            <h3>3. User Accounts</h3>
+            <p>To access certain features, you may need to create an account. You agree to provide accurate information and keep it updated. You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. Notify us immediately of any unauthorized use of your account. We reserve the right to refuse service, terminate accounts, or remove content at our discretion.</p>
+            
+            <h3>4. User Responsibilities</h3>
+            <p>You agree to use the Service only for lawful purposes and in accordance with these Terms. You will not use the Service to violate any laws, infringe intellectual property rights, transmit harmful content, or interfere with the Service's operation. You are solely responsible for any content you submit, including recipes, comments, and photos.</p>
+            
+            <h3>5. Content Ownership</h3>
+            <p>Users retain ownership of content they submit but grant BukiCookie a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and display such content in connection with the Service. BukiCookie owns all right, title, and interest in the Service and its proprietary content, excluding user submissions.</p>
+            
+            <h3>6. Recipe Accuracy and Liability</h3>
+            <p>While we strive for accuracy, BukiCookie does not guarantee the completeness or reliability of any recipes or information on the Service. Cooking involves inherent risks, and you assume full responsibility for your use of any recipes. We are not liable for any adverse effects resulting from recipe use, including foodborne illness, allergic reactions, or other health issues.</p>
+            
+            <h3>7. Prohibited Conduct</h3>
+            <ul class="terms-list">
+                <li><strong>Commercial Use:</strong> You may not use the Service for commercial purposes without our express written permission. This includes using recipes for commercial baking operations, republishing content for profit, or scraping our database for commercial use.</li>
+                
+                <li><strong>Automated Access:</strong> You agree not to use bots, scrapers, or other automated means to access the Service or collect content. Manual scraping of recipes or other content is also prohibited without prior authorization.</li>
+                
+                <li><strong>False Information:</strong> You may not provide false registration information or impersonate others. Creating multiple accounts to evade restrictions or manipulate ratings is strictly prohibited.</li>
+                
+                <li><strong>Harmful Content:</strong> You may not upload viruses or malicious code, or engage in activities that could damage, disable, or impair the Service's functionality. This includes denial-of-service attacks or attempts to bypass security measures.</li>
+                
+                <li><strong>Harassment:</strong> Harassment, bullying, or abusive behavior toward other users will not be tolerated. This includes offensive comments related to race, religion, gender, sexual orientation, or other protected characteristics.</li>
+                
+                <li><strong>Illegal Activities:</strong> You may not use the Service to conduct or promote any illegal activities. This includes but is not limited to fraud, copyright infringement, or the sale of controlled substances.</li>
+                
+                <li><strong>Spam:</strong> Unsolicited advertising, promotional materials, or other forms of solicitation are prohibited without our prior written consent. This includes chain letters, pyramid schemes, and similar activities.</li>
+                
+                <li><strong>Data Mining:</strong> Extracting data from the Service for purposes not expressly permitted is prohibited. This includes compiling user information, recipes, or other content for separate use.</li>
+            </ul>
+            
+            <h3>8. Intellectual Property Rights</h3>
+            <p>All content on BukiCookie, including text, graphics, logos, and software, is our property or our licensors' and is protected by copyright and other intellectual property laws. You may not modify, publish, transmit, create derivative works from, or exploit any content without express authorization. Recipe titles and ingredient lists are generally not copyrightable, but substantial recipe instructions and original content are protected.</p>
+            
+            <h3>9. Copyright Policy</h3>
+            <p>We respect intellectual property rights and expect users to do the same. If you believe your copyright has been infringed, please send a notice containing: (1) identification of the copyrighted work; (2) identification of the infringing material; (3) your contact information; (4) a statement of good faith belief; (5) a statement under penalty of perjury; and (6) your signature. We will respond to valid notices by removing or disabling access to the allegedly infringing content.</p>
+            
+            <h3>10. User Submissions</h3>
+            <p>By submitting content to BukiCookie, you represent that you have all necessary rights to the content and that it does not violate any laws or third-party rights. You grant us permission to use, display, and distribute your content through the Service. We may modify or adapt your content to fit technical requirements or improve user experience. We are not obligated to maintain or provide copies of your submissions.</p>
+            
+            <h3>11. Community Guidelines</h3>
+            <p>Our community thrives when members follow these guidelines: Be respectful in comments and discussions; Share original recipes or properly attribute sources; Provide accurate measurements and instructions; Use appropriate language; Contribute constructively to the community. We may remove content or restrict accounts that violate these guidelines.</p>
+            
+            <h3>12. Third-Party Links and Services</h3>
+            <p>The Service may contain links to third-party websites or services not owned or controlled by BukiCookie. We have no control over and assume no responsibility for their content, privacy policies, or practices. You acknowledge that BukiCookie shall not be liable for any damage or loss caused by third-party services. We recommend reviewing the terms and policies of any third-party services you access.</p>
+            
+            <h3>13. Termination</h3>
+            <p>We may terminate or suspend your account and access to the Service immediately, without prior notice or liability, for any reason, including if you breach these Terms. Upon termination, your right to use the Service will cease immediately. All provisions of these Terms that should survive termination will do so, including ownership provisions, warranty disclaimers, and limitations of liability.</p>
+            
+            <h3>14. Disclaimer of Warranties</h3>
+            <p>The Service is provided "AS IS" and "AS AVAILABLE" without warranties of any kind. BukiCookie disclaims all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Service will be uninterrupted, secure, or error-free, or that results from using the Service will meet your expectations. Recipe outcomes may vary based on ingredients, equipment, and individual techniques.</p>
+            
+            <h3>15. Limitation of Liability</h3>
+            <p>In no event shall BukiCookie be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the Service. Our total liability for any claims related to the Service shall not exceed the amount you paid us, if any, in the past six months. Some jurisdictions do not allow limitations on liability, so these limitations may not apply to you.</p>
+            
+            <h3>16. Indemnification</h3>
+            <p>You agree to defend, indemnify, and hold harmless BukiCookie and its affiliates from any claims, liabilities, damages, and expenses (including attorneys' fees) arising from your use of the Service, your violations of these Terms, or your infringement of any third-party rights. We reserve the right to assume exclusive defense and control of any matter subject to indemnification, and you agree to cooperate with our defense of these claims.</p>
+            
+            <h3>17. Governing Law</h3>
+            <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of the Service shall be resolved in the state or federal courts located in San Francisco County, California. You consent to the personal jurisdiction of these courts.</p>
+            
+            <h3>18. Changes to Terms</h3>
+            <p>We reserve the right to modify these Terms at any time. We will provide notice of significant changes through the Service or by email. Your continued use after changes constitutes acceptance of the new Terms. We encourage periodic review of these Terms. Material changes will not be applied retroactively without your consent, except as required by law.</p>
+            
+            <h3>19. Entire Agreement</h3>
+            <p>These Terms constitute the entire agreement between you and BukiCookie regarding the Service, superseding any prior agreements. If any provision is found invalid or unenforceable, the remaining provisions will remain in full effect. Our failure to enforce any right or provision will not be deemed a waiver of such right or provision.</p>
+            
+            <h3>20. Contact Information</h3>
+            <p>For questions about these Terms, please contact us at:</p>
+            <p>BukiCookie Legal Department<br>
+            123 Baker Street<br>
+            San Francisco, CA 94102<br>
+            Email: legal@bukicookie.com<br>
+            Phone: (415) 555-1234</p>
+            
+            <h3>21. Age Restrictions</h3>
+            <p>The Service is not intended for children under 13. By using the Service, you represent that you are at least 13 years old. If we learn we have collected personal information from a child under 13, we will delete that information immediately. Users between 13-18 must have parent or guardian permission to use the Service.</p>
+            
+            <h3>22. International Use</h3>
+            <p>BukiCookie operates from the United States. If you access the Service from outside the U.S., you are responsible for compliance with local laws. We make no representation that the Service is appropriate or available for use in other locations. Access from territories where content is illegal is prohibited. You may not use the Service in violation of U.S. export laws or regulations.</p>
+            
+            <h3>23. Assignment</h3>
+            <p>You may not assign or transfer these Terms or your rights under them without our prior written consent. We may assign our rights under these Terms without restriction. Any attempted transfer or assignment in violation of this section is void. These Terms will bind and inure to the benefit of the parties and their permitted successors and assigns.</p>
+            
+            <h3>24. Force Majeure</h3>
+            <p>BukiCookie shall not be liable for any failure or delay in performance due to events beyond our reasonable control, including acts of God, natural disasters, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, strikes, shortages of transportation facilities, fuel, energy, labor or materials, or Internet outages.</p>
+            
+            <h3>25. No Third-Party Beneficiaries</h3>
+            <p>These Terms are for the sole benefit of the parties and not for any other person or entity. No third party shall have any right to enforce these Terms. This provision does not affect the rights of permitted successors or assigns under these Terms.</p>
+            
+            <h3>26. Electronic Communications</h3>
+            <p>By using the Service, you consent to receive electronic communications from us. These may include notices about your account and information concerning or related to the Service. You agree that any notices, agreements, disclosures or other communications we send to you electronically will satisfy any legal communication requirements, including that such communications be in writing.</p>
+            
+            <h3>27. Feedback</h3>
+            <p>We welcome feedback, comments and suggestions for improvements to the Service ("Feedback"). You grant us a non-exclusive, worldwide, perpetual, irrevocable, fully-paid, royalty-free license to use and exploit any Feedback you provide without restriction. We are not obligated to use Feedback and will not treat it as confidential.</p>
+            
+            <h3>28. Recipe Modifications</h3>
+            <p>You may modify recipes from the Service for personal use, but any publication or redistribution of modified recipes must include substantial original content and not simply reproduce our recipes with minor changes. When sharing modified recipes online, you must include attribution to BukiCookie and the original recipe author if applicable.</p>
+            
+            <h3>29. Nutritional Information</h3>
+            <p>Nutritional information provided on the Service is estimated and should not be relied upon as professional dietary advice. Actual nutritional content may vary based on specific ingredients used, preparation methods, portion sizes, and other factors. For specific dietary needs, consult a qualified nutritionist or healthcare provider.</p>
+            
+            <h3>30. Allergen Information</h3>
+            <p>While we may provide allergen information for recipes, we cannot guarantee that recipes are free of any specific allergen due to potential cross-contamination or variations in ingredients. Users with food allergies should carefully review all ingredients and consult with a healthcare professional if needed. We are not responsible for allergic reactions or other health issues resulting from recipe use.</p>
+            
+            <h3>31. Promotions and Contests</h3>
+            <p>From time to time, we may offer promotions, contests or sweepstakes. These will be subject to separate rules that will be posted in connection with the promotion. By participating, you agree to the official rules and our decisions regarding such promotions, which are final and binding in all respects.</p>
+            
+            <h3>32. Subscription Terms</h3>
+            <p>Certain premium features may require payment of fees. By signing up for a subscription, you agree to pay all applicable fees. Fees are non-refundable except as required by law. We may change subscription fees by giving you advance notice. Your subscription will automatically renew unless canceled before the renewal date.</p>
+            
+            <h3>33. User Disputes</h3>
+            <p>BukiCookie is not responsible for any disputes between users. You are solely responsible for your interactions with other users. We reserve the right but have no obligation to monitor or mediate disputes. In the event of a dispute, you release BukiCookie from any claims, demands and damages of every kind arising out of or in any way connected with such disputes.</p>
+            
+            <h3>34. Service Modifications</h3>
+            <p>We reserve the right to modify or discontinue the Service or any features at any time without notice. We shall not be liable to you or any third party for any modification, suspension or discontinuance of the Service. Continued use after changes constitutes acceptance of the modified Service.</p>
+            
+            <h3>35. Beta Features</h3>
+            <p>We may offer access to beta features that are still in development. These features may be changed or discontinued at any time and may not work as intended. Beta features are provided "AS IS" with all faults, and we disclaim all warranties regarding beta features. Use of beta features is at your own risk.</p>
+            
+            <h3>36. Mobile Services</h3>
+            <p>The Service may include certain features available via mobile devices. Your carrier's normal rates and fees apply. You are responsible for any mobile charges that may apply. Not all features may work with all carriers or devices. By using mobile services, you agree we may communicate with you regarding the Service by SMS or other electronic means.</p>
+            
+            <h3>37. Security</h3>
+            <p>We implement reasonable security measures to protect user information, but cannot guarantee absolute security. You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. Notify us immediately of any unauthorized use or security breaches.</p>
+            
+            <h3>38. Headings</h3>
+            <p>The section headings in these Terms are for convenience only and have no legal or contractual effect. The language in these Terms shall be interpreted as to its fair meaning and not strictly for or against any party.</p>
+            
+            <h3>39. No Waiver</h3>
+            <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. Any waiver must be in writing and signed by an authorized representative of BukiCookie. If we do waive a default, we do not waive any subsequent defaults of the same or different kind.</p>
+            
+            <h3>40. Severability</h3>
+            <p>If any provision of these Terms is held to be invalid or unenforceable, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect. The invalid or unenforceable provision shall be deemed modified to the least extent necessary to make it valid and enforceable.</p>
+        </div>
+    </section>
+    
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="container">
+            <div class="disclaimer-content">
+                <h3>Important Legal Disclaimer</h3>
+                <p>The information provided in these Terms of Service is for general informational purposes only. All information is provided in good faith, however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information in these Terms.</p>
+                <p>Under no circumstance shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the Service or reliance on any information provided in these Terms. Your use of the Service and your reliance on any information is solely at your own risk.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BukiCookie</h3>
+                    <p>Baking joy, one cookie at a time. Join our global community of cookie enthusiasts!</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#">Recipe Library</a></li>
+                        <li><a href="#">Global Cookie Map</a></li>
+                        <li><a href="#">Baking Challenges</a></li>
+                        <li><a href="#">Live Bake-Alongs</a></li>
+                        <li><a href="#">Cookiepedia</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">Baker Profiles</a></li>
+                        <li><a href="#">Monthly Spotlights</a></li>
+                        <li><a href="#">Discussion Forums</a></li>
+                        <li><a href="#">Recipe Contests</a></li>
+                        <li><a href="#">Buki Points</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>123 Baker Street<br>
+                    San Francisco, CA 94102</p>
+                    <p>Phone: (415) 555-1234</p>
+                    <p>Email: info@bukicookie.com</p>
+                    <p>Business Hours:<br>
+                    Mon-Fri: 9am-5pm PST</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 BukiCookie. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="cookies.html">Cookie Policy</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
